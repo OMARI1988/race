@@ -72,7 +72,7 @@ if __name__ == '__main__':
 
     listener = tf.TransformListener()						# listining to all tf frames
 
-    rate = rospy.Rate(15.0)							# define the rate
+    rate = rospy.Rate(10.0)							# define the rate
     frame_number = 1								# frame counter
 
     # Main loop
@@ -130,7 +130,7 @@ if __name__ == '__main__':
 				msg.append(frames_of_skeleton[j][1:-1]+','+str(var[0])+','+str(var[1])+','+str(var[2])+','+str(var[3]))
 				msg.append('\n')
 
-
+	
 	# append the msg for the data.txt file with objects data
 	for i in objects_pose:
 		if objects_pose[i] != []:
@@ -139,6 +139,7 @@ if __name__ == '__main__':
 			msg.append('pose:')
 			msg.append('\n')
 			for j in range(len(objects_pose[i])):
+				print objects_pose[i]
 				msg.append(str(objects_pose[i][j][0])+','+str(objects_pose[i][j][1])+','+str(objects_pose[i][j][2]))
 				msg.append('\n')
 			msg.append('orientation:')
@@ -147,6 +148,7 @@ if __name__ == '__main__':
 				var = objects_ori[i][j]
 				msg.append(str(var[0])+','+str(var[1])+','+str(var[2])+','+str(var[3]))
 				msg.append('\n')
+	
 
 
 
