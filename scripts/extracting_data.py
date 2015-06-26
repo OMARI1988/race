@@ -13,7 +13,7 @@ import os
 
 # manage diroctories to store data and images
 image_dir = '/home/omari/race/LAD/images/'
-person = 'breakfast_aryana_1'
+person = 'breakfast1_1'
 
 if not os.path.isdir(image_dir):
 	print 'please change the diroctory in extract_data.py'
@@ -266,8 +266,8 @@ if __name__ == '__main__':
 			with open(image_dir+person+'/data.txt', 'a') as file:
 			    for j in msg:
 			    	file.write(str(j))
-			frame_number+=1
 			cv2.imwrite(image_dir+person+'/'+'original'+'/'+str(frame_number)+'.png', img_original) 
 			cv2.imwrite(image_dir+person+'/'+'processed'+'/'+str(frame_number)+'.png', img_processed) 
+			frame_number+=1
 			rate.sleep()
 
